@@ -12,7 +12,7 @@ const initialState = {
   error: null
 };
 
-export default class Duck {
+export default class Duxx {
   constructor (type, binding, transformer) {
     this.actions = createActions (type);
     this.actionCreators = createActionCreators (this.actions);

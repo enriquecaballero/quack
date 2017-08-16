@@ -4,8 +4,8 @@
   useful when multiple ducks are being exported or created
 */
 
-export default function createReducers (ducks = {}) {
+export default function createReducers (ducks = {}, ...callbacks) {
   return Object.keys (ducks).reduce ((previous, key) => {
-    return { ...previous, [key]: ducks[key].reducer () };
+    return { ...previous, [key]: ducks[key].reducer (...callbacks) };
   }, {});
 }
