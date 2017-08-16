@@ -21,7 +21,9 @@
   },
   "description": "Simple fetch-and-set duck reducers for Redux",
   "license": "MIT",
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "peerDependencies": {
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
@@ -76,7 +78,10 @@
     "webpack-dev-server": "^2.4.5"
   },
   "lint-staged": {
-    "*.{js,jsx}": ["prettier-eslint --write", "git add"]
+    "*.{js,jsx}": [
+      "prettier-eslint --write",
+      "git add"
+    ]
   },
   "config": {
     "commitizen": {
