@@ -19,7 +19,15 @@ module.exports = Object.assign ({}, webpackConfig, {
     contentBase: path.resolve (ROOT, "dist"),
     publicPath: "/",
     stats: { colors: true },
-    quiet: true
+    quiet: true,
+    proxy: {
+      "/foo": {
+        target: "http://localhost:3000"
+      },
+      "/bar": {
+        target: "http://localhost:3000"
+      }
+    }
   },
   plugins: webpackConfig.plugins.concat ([
     new DashboardPlugin (setData),

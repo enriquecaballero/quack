@@ -1,11 +1,11 @@
 module.exports = () => {
   switch (process.env.npm_lifecycle_event) {
     case "start":
-      return require("./config/webpack.config.server");
+      return require ("./config/webpack.config.server");
     case "build":
-      return require("./config/webpack.config.publish");
+      return require ("./config/webpack.config.publish");
     default:
-      console.warn(
+      console.warn (
         `Invalid npm lifecycle event '${process.env.npm_lifecycle_event}'`
       );
   }
