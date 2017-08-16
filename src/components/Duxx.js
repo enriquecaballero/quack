@@ -13,12 +13,12 @@ const initialState = {
 };
 
 export default class Duxx {
-  constructor (type, binding, transformer) {
+  constructor (type, data, binding, transformer) {
     this.actions = createActions (type);
     this.actionCreators = createActionCreators (this.actions);
     this.binding = binding;
     this.transformer = transformer;
-    this.initialState = this.bind (initialState);
+    this.initialState = this.bind ({ ...initialState, data });
   }
   bind = object => {
     return this.binding ? this.binding (object) : object;
@@ -26,7 +26,7 @@ export default class Duxx {
   bindReducerState = (binding, transformer) => {
     this.binding = binding;
     this.transformer = transformer;
-    this.initialState = this.bind (initialState);
+    this.initialState = this.bind (this.initialState);
     return this;
   };
   fetch = (...options) => {
