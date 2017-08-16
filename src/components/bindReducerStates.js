@@ -1,6 +1,6 @@
 /*
   - bindReducerStates.js
-  Utility function for wrapping multiple duck instance states with a given function;
+  Utility function for wrapping multiple Duxx instance states with a given function;
   useful when using ImmutableJS (e.g. fromJS)
 */
 

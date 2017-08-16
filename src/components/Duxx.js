@@ -1,6 +1,6 @@
 /*
   - Duxx.js
-  Create a simple fetch-and-set reducer duck bundle without the boilerplating
+  Create a simple fetch-and-set reducer "duck" bundle without the boilerplating
 */
 
 import createActions from "./createActions";
