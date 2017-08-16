@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/enriquecaballero/quack.git"
+    "url": "https://github.com/enriquecaballero/duxx.git"
   },
   "main": "lib/index.js",
   "scripts": {
@@ -24,7 +24,8 @@
   "files": ["lib"],
   "peerDependencies": {
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",

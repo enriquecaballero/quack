@@ -1,5 +1,5 @@
 /*
-  - Duck.js
+  - Duxx.js
   Create a simple fetch-and-set reducer duck bundle without the boilerplating
 */
 
