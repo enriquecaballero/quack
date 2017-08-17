@@ -6,7 +6,7 @@ const server = express ();
 server.set ("json spaces", 2);
 
 server.get ("/foo", (request, response) => {
-  response.send ("Hello, World");
+  response.send ({ text: "foo" });
 });
 
 server.get ("/bar", (request, response) => {
