@@ -39,25 +39,14 @@ export default class Duxx {
   };
   fetch = (...options) => {
     const { request, success, failure } = this.actionCreators;
-    return (onSuccess = null, onError = null) => {
-      return () => {
-        return dispatch => {
-          dispatch (request ());
-          fetch (...options)
-            .then (handleErrors)
-            .then (
-              response => (onSuccess ? onSuccess (response) : response.json ())
-            )
-            .then (data => {
-              dispatch (success (data));
-            })
-            .catch (
-              error =>
-                onError
-                  ? dispatch (failure (onError (error)))
-                  : dispatch (failure (error))
-            );
-        };
+    return () => {
+      return dispatch => {
+        dispatch (request ());
+        fetch (...options)
+          .then (handleErrors)
+          .then (response => response.json ())
+          .then (data => dispatch (success (data)))
+          .catch (error => dispatch (failure (error)));
       };
     };
   };
