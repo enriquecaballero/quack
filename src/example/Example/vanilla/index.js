@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getFoo, getBar } from "../reducers/vanilla";
+import { getFoo, getBar } from "../../reducers/vanilla";
 import Example from "./Example";
 
 function mapStateToProps ({ vanilla }) {

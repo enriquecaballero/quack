@@ -36,8 +36,13 @@ export default class Duxx {
         dispatch (request ());
         try {
           let response = await fetch (...options);
-          let data = await response.json ();
-          dispatch (success (data));
+          let text = await response.text ();
+          try {
+            let data = JSON.parse (text);
+            dispatch (success (data));
+          } catch (error) {
+            dispatch (failure (text));
+          }
         } catch (error) {
           dispatch (failure (error));
         }

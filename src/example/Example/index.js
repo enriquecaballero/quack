@@ -1,3 +1,3 @@
-import immutable from "./immutable";
+import vanilla from "./vanilla";
 
-export default immutable;
+export default vanilla;
