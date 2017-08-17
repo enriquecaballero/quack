@@ -6,11 +6,11 @@ const server = express ();
 server.set ("json spaces", 2);
 
 server.get ("/foo", (request, response) => {
-  response.send ({ text: "foo" });
+  response.send ("Foo");
 });
 
 server.get ("/bar", (request, response) => {
-  response.send ({ text: "bar" });
+  response.send ({ text: "Bar" });
 });
 
 server.listen (PORT_NUMBER, () => {

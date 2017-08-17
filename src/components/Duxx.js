@@ -12,6 +12,14 @@ const initialState = {
   error: null
 };
 
+const handleErrors = response => {
+  const { ok, status, statusText, url } = response;
+  if (!ok) {
+    throw { status, statusText, url }; // eslint-disable-line
+  }
+  return response;
+};
+
 export default class Duxx {
   constructor (type, data, binding, transformer) {
     this.actions = createActions (type);
@@ -31,21 +39,25 @@ export default class Duxx {
   };
   fetch = (...options) => {
     const { request, success, failure } = this.actionCreators;
-    return function () {
-      return async dispatch => {
-        dispatch (request ());
-        try {
-          let response = await fetch (...options);
-          let text = await response.text ();
-          try {
-            let data = JSON.parse (text);
-            dispatch (success (data));
-          } catch (error) {
-            dispatch (failure (text));
-          }
-        } catch (error) {
-          dispatch (failure (error));
-        }
+    return (onSuccess = null, onError = null) => {
+      return () => {
+        return dispatch => {
+          dispatch (request ());
+          fetch (...options)
+            .then (handleErrors)
+            .then (
+              response => (onSuccess ? onSuccess (response) : response.json ())
+            )
+            .then (data => {
+              dispatch (success (data));
+            })
+            .catch (
+              error =>
+                onError
+                  ? dispatch (failure (onError (error)))
+                  : dispatch (failure (error))
+            );
+        };
       };
     };
   };
