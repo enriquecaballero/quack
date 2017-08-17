@@ -14,8 +14,8 @@ const { foo, bar } = bindReducerStates (
   state => state.toJS ()
 );
 
-export const getFoo = foo.fetch ("/foo") (response => response.text ());
-export const getBar = bar.fetch ("/bar") ();
+export const getFoo = foo.fetch ("/foo");
+export const getBar = bar.fetch ("/bar");
 
 const reducers = createReducers ({ foo, bar }, data => data.text);
 
