@@ -11,6 +11,6 @@ export const getFoo = foo.fetch ("/foo") (response => response.text ());
 export const getBar = bar.fetch ("/bar") ();
 
 export default combineReducers ({
-  foo: foo.reducer (data => (data.text ? data.text : data)),
+  foo: foo.reducer (),
   bar: bar.reducer (data => data.text)
 });

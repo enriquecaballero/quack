@@ -9,7 +9,7 @@ import createActionCreators from "./createActionCreators";
 const initialState = {
   isFetching: false,
   data: null,
-  error: null
+  error: {}
 };
 
 const handleErrors = response => {

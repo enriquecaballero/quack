@@ -7,10 +7,6 @@ export default class Example extends PureComponent {
   }
   render () {
     const { foo, bar } = this.props;
-    return (
-      <h2
-        children={`Hello, ${foo.data || foo.error.statusText} ${bar.data}!`}
-      />
-    );
+    return <h2 children={`Hello, ${foo.data} ${bar.data}!`} />;
   }
 }
