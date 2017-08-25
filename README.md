@@ -112,7 +112,7 @@ export default quack.reducer ();
 
 This tells Duxx that you want to bind your state with `fromJS`, so whenever a new state object is returned, it will be wrapped with `fromJS`, returning an Immutable Map or List. You also need to provide Duxx with a way of transforming your state back to vanilla Javascript so that it can do its state manipulation: `state => state.toJS ()`. Once a new state is ready to be returned, it'll again be wrapped with `fromJS`.
 
-If you have multiple _duxxes_, you can use the provided `bindReducerStates` utility function. See below for more information regarding this function.
+If you have multiple _duxxes_, you can use the provided `bindReducerStates` utility function to bind each individual state intead of passing in `fromJS` through each Duxx instantiation. See below for more information regarding this function.
 
 
 ## API
