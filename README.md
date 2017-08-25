@@ -115,26 +115,26 @@ This tells Duxx that you'd like to bind your state with `fromJS`, so whenever a 
 ### Duxx
 
 - `constructor(action, initialDataState, binding, transformer)`
-  - `action`
+  - `action`<br/>
   Constant used to create `REQUEST`, `SUCCESS`, and `FAILURE` actions.
 
-  - `initialDataState`
+  - `initialDataState`<br/>
   Any success response will set your payload under `data`, this allows your define what data should be initially: `{}`, `[]`, etc.
 
-  - `binding`
+  - `binding`<br/>
   Function that will bind your state whenever returned.
 
-  - `transformer`
+  - `transformer`<br/>
   Only required if a binding was passed in, necessary to translate your state back to vanilla Javascript.
 
-- `fetch(endpoint, options)`
+- `fetch(endpoint, options)`<br/>
   Performs a fetch, handles the promise, dispatches the action creators.
 
-- `reducer(onSuccess, onCallback)`
+- `reducer(onSuccess, onError)`<br/>
   Reducer that should be included in your `combineReducers` function.
 
-  - `onSuccess`
+  - `onSuccess`<br/>
   Allows you to return what of the received payload should be set under `data` instead of everything.
 
-  - `onError`
+  - `onError`<br/>
   Allows you to handle the error and return your own custom error to be set under `error`.
