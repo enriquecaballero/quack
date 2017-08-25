@@ -6,7 +6,7 @@
 ```
 npm install --save duxx
 ```
-Duxx requires `redux-thunk` Redux middleware
+Duxx requires [redux-thunk](https://github.com/gaearon/redux-thunk) Redux middleware
 ```
 npm install --save redux-thunk
 ```
@@ -85,7 +85,7 @@ export default function (state = initialState, action) {
 }
 ```
 
-You quickly realize that most often than not, you will find yourself having code like that for individual fetches all over the place. Duxx simplifies this by handling all the boilerplating for you. Here's an example of what you have just seen above but using Duxx:
+You quickly realize that most often than not, you will find yourself having code like that for individual fetches all over the place. Duxx simplifies this by handling all the boilerplating for you. With Duxx, the above code looks like this:
 ```
 import Duxx from 'duxx';
 
@@ -96,11 +96,11 @@ export default quack.reducer ();
 
 ### What the heck happened here?
 
-We instantiated a new Duxx instance that took in an action: `MY_ACTION`; created its action counterparts: `MY_ACTION_REQUEST`, `MY_ACTION_SUCCESS`, `MY_ACTION_FAILURE`; and created the three `request`, `success`, `failure` action creators that will be dispatched asynchronously through a _thunked_ fetch. A Duxx instance exposes a `fetch` function that takes in anything a typical fetch does; Duxx handles the promise and the dispatching for you. Finally, exporting the reducer from our Duxx instance, placing it with our other reducers, combined with Redux's `combineReducers` helper function.
+We instantiated a new Duxx instance that took in an action: `MY_ACTION`; created its action counterparts: `MY_ACTION_REQUEST`, `MY_ACTION_SUCCESS`, `MY_ACTION_FAILURE`; and created the three `request`, `success`, `failure` action creators that will be dispatched asynchronously through a [thunked](https://github.com/gaearon/redux-thunk) fetch. A Duxx instance exposes a `fetch` function that takes in anything a typical fetch does; Duxx handles the promise and the dispatching for you. Finally exporting the reducer from our Duxx instance, placing it with our other reducers, combined with the Redux `combineReducers` helper function.
 
-### What if I use immutable?
+### What if I use Immutable.js?
 
-Duxx provides a few ways of binding your state with a specific function. Lets say you want to use immutable.js, you instantiate your Duxx instance:
+Duxx provides a few ways of binding your state with a specific function. Lets say you want to use [Immutable.js](https://facebook.github.io/immutable-js/), you instantiate your Duxx instance like this:
 ```
 import Duxx from 'duxx';
 import { fromJS } from 'immutable';
@@ -110,7 +110,10 @@ export const fetchSomething = quack.fetch ('/my/endpoint');
 export default quack.reducer ();
 ```
 
-This tells Duxx that you'd like to bind your state with `fromJS`, so whenever a new state object is returned, it will be wrapped with`fromJS`, returning an Immutable Map or List. You also need to provide Duxx with a way of transforming your state back to vanilla Javascript so that it can do its mutation, returning the mutation as a new object, hence `state => state.toJS ()`.
+This tells Duxx that you want to bind your state with `fromJS`, so whenever a new state object is returned, it will be wrapped with `fromJS`, returning an Immutable Map or List. You also need to provide Duxx with a way of transforming your state back to vanilla Javascript so that it can do its state manipulation: `state => state.toJS ()`. Once a new state is ready to be returned, it'll again be wrapped with `fromJS`.
+
+If you have multiple _duxxes_, you can use the provided `bindReducerStates` utility function. See below for more information regarding this function.
+
 
 ## API
 
