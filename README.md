@@ -112,7 +112,9 @@ export default quack.reducer ();
 
 This tells Duxx that you'd like to bind your state with `fromJS`, so whenever a new state object is returned, it will be wrapped with`fromJS`, returning an Immutable Map or List. You also need to provide Duxx with a way of transforming your state back to vanilla Javascript so that it can do its mutation, returning the mutation as a new object, hence `state => state.toJS ()`.
 
-### Duxx
+## API
+
+### `Duxx`
 
 - `constructor(action, initialDataState, binding, transformer)`
   - `action`<br/>
@@ -138,3 +140,24 @@ This tells Duxx that you'd like to bind your state with `fromJS`, so whenever a 
 
   - `onError`<br/>
   Allows you to handle the error and return your own custom error to be set under `error`.
+
+### `bindReducerStates(duxxes, binding, transformer)`
+Allows your bind multiple reducers at the same time:
+```
+const { foo, bar } = bindReducerStates (
+  {
+    foo: new Duxx (FOO_ACTION),
+    bar: new Duxx (BAR_ACTION)
+  },
+  fromJS,
+  state => state.toJS ()
+);
+```
+
+### `createReducers(duxxes, onSuccess, onError)`
+Takes in an object with mutiple duxx instances, calls `reducer()` on each instance, returning an object of reducers:
+```
+export default combineReducers (
+  createReducers ({ foo, bar })
+);
+```
