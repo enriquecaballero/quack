@@ -119,7 +119,7 @@ If you have multiple _duxxes_, you can use the provided `bindReducerStates` util
 
 ### `Duxx`
 
-- `constructor(action, initialDataState, binding, transformer)`
+- `constructor(action, initialDataState?, binding?, transformer?)`
   - `action`<br/>
   Constant used to create `REQUEST`, `SUCCESS`, and `FAILURE` actions.
 
@@ -132,10 +132,10 @@ If you have multiple _duxxes_, you can use the provided `bindReducerStates` util
   - `transformer`<br/>
   Only required if a binding was passed in, necessary to translate your state back to vanilla Javascript.
 
-- `fetch(endpoint, options)`<br/>
+- `fetch(endpoint, options?)`<br/>
   Performs a fetch, handles the promise, dispatches the action creators.
 
-- `reducer(onSuccess, onError)`<br/>
+- `reducer(onSuccess?, onError?)`<br/>
   Reducer that should be included in your `combineReducers` function.
 
   - `onSuccess`<br/>
@@ -157,7 +157,7 @@ const { foo, bar } = bindReducerStates (
 );
 ```
 
-### `createReducers(duxxes, onSuccess, onError)`
+### `createReducers(duxxes, onSuccess?, onError?)`
 Takes in an object with mutiple duxx instances, calls `reducer()` on each instance, returning an object of reducers. Instead of doing:
 ```
 export default {
