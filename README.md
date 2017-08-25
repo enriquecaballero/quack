@@ -155,7 +155,14 @@ const { foo, bar } = bindReducerStates (
 ```
 
 ### `createReducers(duxxes, onSuccess, onError)`
-Takes in an object with mutiple duxx instances, calls `reducer()` on each instance, returning an object of reducers:
+Takes in an object with mutiple duxx instances, calls `reducer()` on each instance, returning an object of reducers. Instead of doing:
+```
+export default {
+  foo: foo.reducer (),
+  bar: bar.reducer ()
+}
+```
+You can do:
 ```
 export default combineReducers (
   createReducers ({ foo, bar })
