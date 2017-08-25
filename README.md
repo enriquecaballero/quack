@@ -96,7 +96,7 @@ export default quack.reducer ();
 
 ### What the heck happened here?
 
-We instantiated a new Duxx instance that took in an action: `MY_ACTION`; Duxx then created actions off the provided action: `MY_ACTION_REQUEST`, `MY_ACTION_SUCCESS`, `MY_ACTION_FAILURE`; and the three `request`, `success`, `failure` action creators that will be dispatched asynchronously through a [thunked](https://github.com/gaearon/redux-thunk) fetch. A Duxx instance exposes a `fetch` function that takes in anything a typical fetch does; Duxx handles the promise and the dispatching for you. Finally exporting the reducer from our Duxx instance, placing it with our other reducers, combined with the Redux `combineReducers` helper function.
+We instantiated a new Duxx instance that took in an action: `MY_ACTION`; Duxx then created actions off the provided action: `MY_ACTION_REQUEST`, `MY_ACTION_SUCCESS`, `MY_ACTION_FAILURE`; and the three `request`, `success`, `failure` action creators that will be dispatched asynchronously through a [thunked](https://github.com/gaearon/redux-thunk) fetch. A Duxx instance exposes a `fetch` function that takes in anything a typical fetch does; Duxx handles the promise and the dispatching for you. And finally exporting the reducer from our Duxx instance, placing it with our other reducers, combined with the Redux `combineReducers` helper function.
 
 ### What if I use Immutable.js?
 
