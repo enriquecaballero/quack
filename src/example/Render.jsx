@@ -5,8 +5,6 @@ import { Provider } from "react-redux";
 import store from "./store";
 import Example from "./Example";
 
-declare var module: any;
-
 const render = Component => {
   ReactDOM.render (
     <AppContainer>
