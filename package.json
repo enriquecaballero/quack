@@ -56,7 +56,7 @@
     "file-loader": "^1.0.0-rc.0",
     "flow-bin": "^0.54.0",
     "html-webpack-plugin": "^2.30.1",
-    "husky": "^0.14.0",
+    "husky": "^1.1.0",
     "immutable": "^3.8.1",
     "less": "^2.7.2",
     "less-loader": "^4.0.3",
