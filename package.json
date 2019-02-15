@@ -44,7 +44,7 @@
     "css-loader": "^0.28.1",
     "cz-conventional-changelog": "^2.0.0",
     "empty": "^0.10.1",
-    "eslint": "^4.1.0",
+    "eslint": "^5.14.0",
     "eslint-config-prettier": "^2.1.0",
     "eslint-config-react-app": "^2.0.0",
     "eslint-plugin-babel": "^4.1.1",
