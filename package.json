@@ -70,7 +70,7 @@
     "redux-thunk": "^2.2.0",
     "semantic-release": "^7.0.1",
     "style-loader": "^0.18.0",
-    "uglify-js": "^3.0.27",
+    "uglify-js": "^3.5.10",
     "uglifyjs-webpack-plugin": "^0.4.6",
     "url-loader": "^0.5.8",
     "validate-commit-msg": "^2.12.1",
