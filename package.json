@@ -76,7 +76,7 @@
     "validate-commit-msg": "^2.12.1",
     "webpack": "^3.0.0",
     "webpack-dashboard": "^1.0.0-5",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^3.9.0"
   },
   "lint-staged": {
     "*.{js,jsx}": [
